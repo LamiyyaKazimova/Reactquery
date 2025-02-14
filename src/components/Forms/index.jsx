@@ -4,15 +4,15 @@ import axios from "axios";
 import './index.scss';
 
 function Form({message,setMessage,inputValue,setInputValue}){
-
-
     
     function handleChange(e) {
         const { name, value } = e.target;
         setInputValue((prevValue) => ({
           ...prevValue,
           [name]: value,
-        }));
+        }),
+      
+      );
       }
     
       async function handlePostClick() {
@@ -47,13 +47,11 @@ function Form({message,setMessage,inputValue,setInputValue}){
       <button onClick={handlePostClick}> Add Students</button>
       </div>
 
-      
-      
-      
 
 
-
-      {Boolean(message)  && <p>{message}</p>}
+      
+  
+      {Boolean(message)  && <p className="message">{message}</p>}
 
 
       </div>
