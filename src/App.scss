@@ -1,0 +1,31 @@
+.App {
+  text-align: center;
+}
+
+nav{
+  background-color: brown;
+  padding: 7px;
+  
+  ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 10px;
+
+    li{
+      list-style: none;
+      text-align: center;
+
+      a{
+        text-decoration: none;
+        color: white;
+        font-size: 18px;
+        transition: all 1s;
+
+        &:hover{
+          color: black;
+        }
+      }
+    }
+  }
+}
