@@ -7,6 +7,15 @@ import './index.scss'
 function Teacher({data}){
 
 const [userData, setUserData] = useState([]);
+
+
+async function handleDeleteClick (id){
+  await axios.delete(
+    `https://678e3089a64c82aeb11f6611.mockapi.io/teacher/${id}`
+  );
+
+  setUserData(userData.filter(data=>data.id!==id))
+}
     
 
     useEffect(() => {
@@ -29,6 +38,7 @@ const [userData, setUserData] = useState([]);
             <th scope="col">Ad</th>
             <th scope="col">Soyad</th>
             <th scope="col">Email</th>
+            <th scope="col">Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -38,6 +48,7 @@ const [userData, setUserData] = useState([]);
               <td>{data.firstname}</td>
               <td>{data.lastname}</td>
               <td>{data.email}</td>
+              <button onClick={()=>{handleDeleteClick(data.id)}}>Delete</button>
             </tr>
           ))}
         </tbody>

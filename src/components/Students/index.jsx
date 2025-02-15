@@ -1,6 +1,4 @@
 import React from "react";
-
-
 import axios from "axios";
 import { useEffect,useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -9,8 +7,17 @@ import './index.scss'
 function Students({data}){
 
 const [userData, setUserData] = useState([]);
+
+  async function handleDelete (id){
+    await axios.delete(
+      `https://678e3089a64c82aeb11f6611.mockapi.io/students/${id}`
+    );
+
+    setUserData(userData.filter(data=>data.id!==id))
     
 
+  }
+    
     useEffect(() => {
         const data = async () => {
           const response = await axios.get(
@@ -18,7 +25,8 @@ const [userData, setUserData] = useState([]);
           );
           setUserData(response.data);
         };
-        data();
+
+        data()
       
     }, []);
   
@@ -31,6 +39,7 @@ const [userData, setUserData] = useState([]);
             <th scope="col">Ad</th>
             <th scope="col">Soyad</th>
             <th scope="col">Email</th>
+            <th scope="col">Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -40,6 +49,7 @@ const [userData, setUserData] = useState([]);
               <td>{data.firstname}</td>
               <td>{data.lastname}</td>
               <td>{data.email}</td>
+              <button onClick={()=>{handleDelete(data.id)}}>Delete</button>
             </tr>
           ))}
         </tbody>
@@ -53,3 +63,9 @@ const [userData, setUserData] = useState([]);
 }
 
 export default Students;
+
+
+
+
+
+

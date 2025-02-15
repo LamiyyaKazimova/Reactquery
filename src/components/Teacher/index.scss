@@ -1,10 +1,21 @@
-.teacher-table{
-    margin: 50px 100px;
-    .table,th,tr,td{
-        margin: 0 auto;
-        border: 1px solid white;
-        background-color: brown;
-        color: white;
-        
-    }
+.teacher-table {
+  margin: 50px 100px;
+  .table,
+  th,
+  tr,
+  td {
+    margin: 0 auto;
+    border: 1px solid white;
+    background-color: brown;
+    color: white;
+  }
+
+  button {
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 6px;
+    padding: 10px;
+    margin: 10px;
+    color: white;
+  }
 }
