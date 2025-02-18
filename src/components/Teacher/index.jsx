@@ -1,34 +1,27 @@
 import React from "react"
-import axios from "axios";
-import { useEffect,useState } from "react";
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+} from '@tanstack/react-query'
 import "bootstrap/dist/css/bootstrap.min.css";
 import './index.scss'
+import { deleteTeacher, getTeachers } from "./TeacherServices";
 
 function Teacher({data}){
 
-const [userData, setUserData] = useState([]);
 
+  const queryClient=useQueryClient()
 
-async function handleDeleteClick (id){
-  await axios.delete(
-    `https://678e3089a64c82aeb11f6611.mockapi.io/teacher/${id}`
-  );
+  const query=useQuery({queryKey:['todos'],queryFn:getTeachers})
 
-  setUserData(userData.filter(data=>data.id!==id))
-}
-    
+ const mutation = useMutation({
+     mutationFn: deleteTeacher,
+     onSuccess: () => {
+       queryClient.invalidateQueries({ queryKey: ['todos'] })
+     },
+   })
 
-    useEffect(() => {
-        const data = async () => {
-          const response = await axios.get(
-            "https://678e3089a64c82aeb11f6611.mockapi.io/teacher"
-          );
-          setUserData(response.data);
-        };
-        data();
-      
-    }, []);
-  
     return(
         <div className="teacher-table">
       <table class="table">
@@ -42,21 +35,19 @@ async function handleDeleteClick (id){
           </tr>
         </thead>
         <tbody>
-          {userData.map((data) => (
+          {query.data?.map((data) => (
             <tr key={data.id}>
             <td>{data.id}</td>
               <td>{data.firstname}</td>
               <td>{data.lastname}</td>
               <td>{data.email}</td>
-              <button onClick={()=>{handleDeleteClick(data.id)}}>Delete</button>
+              <button onClick={()=>{
+                mutation.mutate(data.id)
+              }}>Delete</button>
             </tr>
           ))}
         </tbody>
       </table>
-
-
-
-  
         </div>
     )
 }
