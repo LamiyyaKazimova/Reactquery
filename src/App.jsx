@@ -10,7 +10,12 @@ const initialValue = {
   firstname: "",
   lastname: "",
   email: "",
+ specialty:"",
+ profession:"",
+ point:"",
 };
+
+
 
 function App() {
   const [inputValue, setInputValue] = useState(initialValue);

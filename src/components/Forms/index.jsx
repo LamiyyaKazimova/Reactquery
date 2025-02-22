@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import './index.scss';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { handlePostClick, handlePostTeacherClick } from "./FormServices";
+import { handlePostClick} from "./Services/studentServices";
+import { handlePostTeacherClick } from "./Services/teacherServices";
+
+
 
 function Form({ inputValue, setInputValue }) {
+
+    const [isFormVisible,setIsFormVisible]=useState(false)
+    const [isFormHidden,setIsFormHidden]=useState(false)
+    
     function handleChange(e) {
         const { name, value } = e.target;
         setInputValue((prevValue) => ({
@@ -14,6 +21,23 @@ function Form({ inputValue, setInputValue }) {
 
     const queryClient = useQueryClient();
 
+    function handleVisible(){
+    setIsFormVisible(!isFormVisible)
+    }
+
+    function handleHidden(){
+        setIsFormHidden(!isFormHidden)
+    }
+
+    function handleStudentButtonClick(){
+    handleAddStudent()
+    handleVisible()
+    }
+
+    function handleTeacherButtonclick(){
+        handleAddTeacher()
+        handleHidden()
+    }
   
     const mutationStudents = useMutation({
         mutationFn: handlePostClick,
@@ -32,6 +56,7 @@ function Form({ inputValue, setInputValue }) {
 
     const handleAddTeacher = () => {
         mutationTeacher.mutate({ inputValue,setInputValue });
+
     };
 
     const handleAddStudent = () => {
@@ -39,14 +64,34 @@ function Form({ inputValue, setInputValue }) {
     };
 
     return (
-        <div className="form">
-            <input onChange={handleChange} type="text" name="firstname" placeholder="Adı daxil edin" />
+        <div className="forms">
+        <div className={isFormVisible ? "show-form" : "none-form"}>
+          <div className="student-input">
+          <input onChange={handleChange}  type="text" name="firstname" placeholder="Adı daxil edin" />
             <input onChange={handleChange} type="text" name="lastname" placeholder="Soyadı daxil edin" />
             <input onChange={handleChange} type="email" name="email" placeholder="Emaili daxil edin" />
-            <div className="all-button">
-                <button onClick={handleAddTeacher}> Add Teacher</button>
-                <button onClick={handleAddStudent}> Add Students</button>
+            <input onChange={handleChange} type="name" name="specialty" placeholder="Ixtisas daxil edin"/>
+            <input onChange={handleChange} type="name" name="point" placeholder="Qiymet daxil edin"/>
+          </div>
+
+        </div>
+        <div className="all-button">
+            <button onClick={handleStudentButtonClick}> Add Students</button>
             </div>
+
+
+        <div className={isFormHidden ? "show-form" : "none-form"}>
+           <div className="teacher-input">
+           <input onChange={handleChange}  type="text" name="firstname" placeholder="Adı daxil edin" />
+            <input onChange={handleChange} type="text" name="lastname" placeholder="Soyadı daxil edin" />
+            <input onChange={handleChange} type="email" name="email" placeholder="Emaili daxil edin" />
+            <input onChange={handleChange} type="name" name="profession" placeholder="Pesen daxil edin" />
+           </div>
+        </div>
+        <div className="all-button">
+        <button onClick={handleTeacherButtonclick} > Add Teacher</button>
+            </div>
+        
         </div>
     );
 }

@@ -1,20 +1,49 @@
-.teacher-table{
-    margin: 50px 100px;
-    .table,th,tr,td{
-        margin: 0 auto;
-        border: 1px solid white;
-        background-color: brown;
-        color: white;
-        margin: 10px;
-        
-    }
+.teacher-table {
+  margin: 50px 150px;
+  .table,
+  th,
+  tr,
+  td {
+    margin: 0 auto;
+    border: 1px solid white;
+    background-color: brown;
+    color: white;
+    margin: 10px;
+  }
 
-    button{
+  button {
     background-color: transparent;
     border: 1px solid white;
     border-radius: 6px;
     padding: 10px;
     margin: 10px;
     color: white;
-    }
+  }
+}
+
+.not-found {
+  margin-top: 200px;
+  font-size: 20px;
+}
+
+select {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  background-color: brown;
+}
+
+.all{
+display: flex;
+align-items: center;
+justify-content: space-around;
+
+.button{
+background-color: brown;
+color: white;
+border: none;
+border-radius: 10px;
+padding: 10px;
+}
 }
