@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.scss";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
@@ -8,6 +8,9 @@ function Students({ data }) {
   const [specialty, setSpecialty] = useState(null);
   const [minpoint, setMinPoint] = useState(null);
   const [maxpoint, setMaxPoint] = useState(null);
+  const [search, setSearch] = useState("");
+  const [currentpage, setCurrentPage] = useState(1);
+  let pageSize = 10;
 
   const queryClient = useQueryClient();
   const query = useQuery({ queryKey: ["todos"], queryFn: getStudents });
@@ -19,58 +22,48 @@ function Students({ data }) {
     },
   });
 
-  const dataValue=""
-
   function specialtyValue(e) {
     setSpecialty(e.target.value);
   }
 
-  function pointValue(e) {
-    setMinPoint(e.target.value.toLowerCase());
-    setMaxPoint(e.target.value.toLowerCase());
+  function minValue(e) {
+    setMinPoint(Number(e.target.value));
   }
 
+  function maxValue(e) {
+    setMaxPoint(Number(e.target.value));
+  }
 
-  
+  function searchValue(e) {
+    setSearch(e.target.value);
+  }
 
-  const teacherPointData = useMemo(() => {
-    if (!query.data) {
-      return [];
-    }
-
-    if (!maxpoint && minpoint) {
-      return query.data;
-    }
-
-    return query.data.filter(
-      (students) => students.point >= minpoint || students.point <= maxpoint
-    );
-  }, [maxpoint, minpoint, query.data]);
+  function pageValue(page) {
+    setCurrentPage(page);
+  }
 
   const studentData = useMemo(() => {
-    if (!query.data) {
-      return [];
-    }
-
-    if (!specialty) {
-      return query.data;
-    }
-    return query.data.filter(
-      (student) => student.specialty.toLowerCase() === specialty.toLowerCase()
-    );
-  }, [specialty, query.data]);
-
-  if (studentData.length === 0) {
-    return (
-      <div className="not-found">
-        No students found for the selected specialty.
-      </div>
-    );
-  }
-
-
+    if (!query.data) return [];
   
-
+    const filteredData =  query.data.filter((student) => {
+      const matchesSpecialty =!specialty || (student.specialty && student.specialty.toLowerCase() === specialty.toLowerCase());
+  
+      const matchesPoint =
+        (minpoint === null || student.point >= minpoint) &&
+        (maxpoint === null || student.point <= maxpoint);
+  
+      const searchFiltered =
+        (student.firstname && student.firstname.toLowerCase().includes(search.toLowerCase())) ||
+        (student.lastname && student.lastname.toLowerCase().includes(search.toLowerCase()));
+  
+      return matchesSpecialty && matchesPoint && searchFiltered;
+    });
+  
+    const startIndex = (currentpage - 1) * pageSize;
+    const endIndex = startIndex + pageSize;
+    return filteredData.slice(startIndex, endIndex);
+  }, [specialty, minpoint, maxpoint, search, currentpage, query.data]);
+  
   return (
     <div className="teacher-table">
       <div className="all">
@@ -89,15 +82,26 @@ function Students({ data }) {
         </select>
 
         <div className="inputs">
-          <input value={minpoint} type="text" />
-          <input value={maxpoint} type="text" />
-          <button className="button" onClick={pointValue}>
-            Goster
-          </button>
+          <input
+            type="number"
+            value={minpoint}
+            onChange={minValue}
+            placeholder="Min"
+          />
+          <input
+            type="number"
+            value={maxpoint}
+            onChange={maxValue}
+            placeholder="Max"
+          />
+        </div>
+
+        <div className="search-input">
+          <input type="text" value={search} onChange={searchValue} />
         </div>
       </div>
 
-      <table class="table">
+      <table className="table">
         <thead>
           <tr>
             <th scope="col">Id</th>
@@ -129,6 +133,21 @@ function Students({ data }) {
           ))}
         </tbody>
       </table>
+
+      <button
+        className="buttons"
+        onClick={() => pageValue(currentpage - 1)}
+        disabled={currentpage === 1}
+      >
+        Previous
+      </button>
+      <button
+        className="buttons"
+        onClick={() => pageValue(currentpage + 1)}
+        disabled={currentpage === Math.ceil(query.data?.length / pageSize)}
+      >
+        Next
+      </button>
     </div>
   );
 }

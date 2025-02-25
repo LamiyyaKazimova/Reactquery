@@ -36,7 +36,7 @@ function App() {
             </nav>
 
             <Routes>
-              <Route path="/" element={<Form inputValue={inputValue} setInputValue={setInputValue} />} />
+              <Route path="/" element={<Form inputValue={inputValue} setInputValue={setInputValue}  />} />
               <Route path="/teacher" element={<Teacher data={inputValue} />} />
               <Route path="/students" element={<Students data={inputValue} />} />
             </Routes>

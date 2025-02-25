@@ -32,11 +32,14 @@ function Teacher({ data }) {
     }
 
     return query.data.filter((teacher) => teacher.profession === profession);
-  },[profession,query.data]);
-
+  }, [profession, query.data]);
 
   if (teacherData.length === 0) {
-    return <div className="not-found">No teacher found for the selected specialty.</div>; 
+    return (
+      <div className="not-found">
+        No teacher found for the selected specialty.
+      </div>
+    );
   }
 
   return (
@@ -48,8 +51,8 @@ function Teacher({ data }) {
         id="profession"
       >
         <option value="Secin">Seçin</option>
-        <option value="Müəllim" >Müəllim</option>
-        <option  value="Developer" >Developer</option>
+        <option value="Müəllim">Müəllim</option>
+        <option value="Developer">Developer</option>
         <option value="Həkim">Həkim</option>
       </select>
       <table class="table">

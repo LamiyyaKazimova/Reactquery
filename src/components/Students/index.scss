@@ -12,7 +12,7 @@
   }
 
   button {
-    background-color: transparent;
+    background-color: brown;
     border: 1px solid white;
     border-radius: 6px;
     padding: 10px;
@@ -46,4 +46,24 @@ border: none;
 border-radius: 10px;
 padding: 10px;
 }
+
+.inputs{
+  input{
+  width: 80px;
+  border-radius:10px;
+  border:none;
+  background-color: brown;
+  color: white;
+  padding: 10PX;
+
+  }
+ }
+
+ .buttons{
+  background-color: blueviolet;
+  margin-top: 200px;
+  width: 500px;
+
+  }
+
 }
