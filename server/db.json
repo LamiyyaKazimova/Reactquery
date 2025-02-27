@@ -1,0 +1,88 @@
+{
+  "students": [
+    {
+      "firstname": "Lamiye",
+      "lastname": "Kazimova",
+      "email": "lamiyekazimov37@gmail.com",
+      "id": "1",
+      "specialty": "informasiya texnalogiyalari",
+      "profession": "",
+      "point": "60"
+    },
+    {
+      "firstname": "Lamiye",
+      "lastname": "Kazimova",
+      "email": "lamiyekazimov37@gmail.com",
+      "id": "9",
+      "specialty": "informasiya texnalogiyalari",
+      "profession": "",
+      "point": "60"
+    },
+    {
+      "firstname": "Lamiye",
+      "lastname": "Kazimova",
+      "email": "lamiyekazimov37@gmail.com",
+      "id": "10",
+      "specialty": "informasiya texnalogiyalari",
+      "profession": "",
+      "point": "50"
+    },
+    {
+      "firstname": "Lamiye",
+      "lastname": "Kazimova",
+      "email": "l@gmail.com",
+      "id": "11",
+      "profession": "Development instuctor"
+    },
+    {
+      "firstname": "Fatime",
+      "lastname": "Alizade",
+      "email": "f@gmail.com",
+      "id": "12",
+      "profession": "Pesen"
+    },
+    {
+      "firstname": "2025-02-25T08:47:31.415Z",
+      "lastname": "Georgia Mitchell IV",
+      "email": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/754.jpg",
+      "id": "14"
+    },
+    {
+      "firstname": "Lamiye",
+      "lastname": "Kazimova",
+      "email": "lale@gmail.com",
+      "id": "13",
+      "specialty": "Kompüter elmleri",
+      "point": "50"
+    },
+    {
+      "firstname": "2025-02-25T08:47:31.415Z",
+      "lastname": "Georgia Mitchell IV",
+      "email": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/754.jpg",
+      "id": "14"
+    },
+    {
+      "firstname": "2025-02-24T22:39:41.715Z",
+      "lastname": "Eunice Hermann",
+      "email": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/763.jpg",
+      "id": "15"
+    }
+  ],
+  "teacher": [
+    {
+      "firstname": "Mahammad",
+      "lastname": "Mikayilov",
+      "email": "mahammad@gmail.com",
+      "id": "4",
+      "specialty": "",
+      "profession": "developer"
+    },
+    {
+      "firstname": "Mahammad",
+      "lastname": "Mikayilov",
+      "email": "mahammad@gmail.com",
+      "id": "5",
+      "profession": "Developer"
+    }
+  ]
+}

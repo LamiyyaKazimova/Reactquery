@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { NavLink } from "react-router"
 import './App.scss';
 import Form from "./components/Forms";
 import Teacher from "./components/Teacher";
@@ -28,10 +29,10 @@ function App() {
         <BrowserRouter>
           <div>
             <nav>
-              <ul>
-                <li><a href="/">Form</a></li>
-                <li><a href="/teacher">Teacher</a></li>
-                <li><a href="/students">Students</a></li>
+              <ul className="link">
+              <NavLink  to="/">Form</NavLink> 
+              <NavLink to="/teacher">Teacher</NavLink>
+              <NavLink to="/students">Students</NavLink>
               </ul>
             </nav>
 

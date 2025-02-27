@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-const  apiUrl="https://678e3089a64c82aeb11f6611.mockapi.io/students";
+const  apiUrl="http://localhost:3000/students";
 
 
 export const getStudents=async()=>{

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import './index.scss';
+import { useNavigate } from "react-router-dom";
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { handlePostClick } from "./Services/studentServices";
 import { handlePostTeacherClick } from "./Services/teacherServices";
@@ -8,6 +9,10 @@ function Form({ inputValue, setInputValue }) {
 
     const [isFormVisible, setIsFormVisible] = useState(false)
     const [isFormHidden, setIsFormHidden] = useState(false)
+    const[disabledValue,setDisabledValue]=useState(false)
+    const[disableValue,setDisableValue]=useState(false)
+    
+
 
     function handleChange(e) {
         const { name, value } = e.target;
@@ -16,6 +21,8 @@ function Form({ inputValue, setInputValue }) {
             [name]: value,
         }));
     }
+
+   
 
     const queryClient = useQueryClient();
 
@@ -27,14 +34,18 @@ function Form({ inputValue, setInputValue }) {
         setIsFormHidden(!isFormHidden)
     }
 
+    
+
     function handleStudentButtonClick() {
         handleAddStudent()
         handleVisible()
+        setDisabledValue(!disabledValue)
     }
 
-    function handleTeacherButtonclick() {
+    function handleTeacherButtonClick() {
         handleAddTeacher()
         handleHidden()
+        setDisableValue(!disableValue)
     }
 
     const mutationStudents = useMutation({
@@ -48,6 +59,7 @@ function Form({ inputValue, setInputValue }) {
                 specialty: "",
                 point: ""
             });
+            
         },
     });
 
@@ -61,15 +73,20 @@ function Form({ inputValue, setInputValue }) {
                 email: "",
                 profession: ""
             });
-        },
-    });
 
+        },
+        
+
+    });
+    const navigate=useNavigate()
     const handleAddTeacher = () => {
         mutationTeacher.mutate({ inputValue, setInputValue });
+        navigate("/teacher"); 
     };
 
-    const handleAddStudent = () => {
+    const handleAddStudent = (navigate) => {
         mutationStudents.mutate({ inputValue, setInputValue });
+        navigate=("./students")
     };
 
     return (
@@ -115,8 +132,10 @@ function Form({ inputValue, setInputValue }) {
             </div>
 
             <div className="all-button">
-                <button onClick={handleStudentButtonClick}> Add Students</button>
-            </div>
+    
+        <button onClick={handleStudentButtonClick}  disabled={disabledValue}> Add Students</button>
+    
+    </div>
 
             <div className={isFormHidden ? "show-form" : "none-form"}>
                 <div className="teacher-input">
@@ -142,14 +161,20 @@ function Form({ inputValue, setInputValue }) {
                         onChange={handleChange}
                         type="name"
                         name="profession"
-                        placeholder="Pesen daxil edin"
+                        placeholder="Sahenizi daxil edin"
                     />
                 </div>
             </div>
 
             <div className="all-button">
-                <button onClick={handleTeacherButtonclick}> Add Teacher</button>
-            </div>
+    
+        <button onClick={handleTeacherButtonClick} disabled={disabledValue}> Add Teacher</button>
+      
+        
+
+
+
+        </div>
         </div>
     );
 }

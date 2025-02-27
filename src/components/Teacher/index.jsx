@@ -31,7 +31,7 @@ function Teacher({ data }) {
       return query.data;
     }
 
-    return query.data.filter((teacher) => teacher.profession === profession);
+    return query.data.filter((teacher) => teacher.profession.toLowerCase() === profession.toLowerCase());
   }, [profession, query.data]);
 
   if (teacherData.length === 0) {
@@ -50,10 +50,10 @@ function Teacher({ data }) {
         name="profession"
         id="profession"
       >
-        <option value="Secin">Seçin</option>
-        <option value="Müəllim">Müəllim</option>
-        <option value="Developer">Developer</option>
-        <option value="Həkim">Həkim</option>
+        <option value="Hamisi">Seçin</option>
+        <option value="Proqramlasdirma">Proqramlasdirma</option>
+        <option value="Azerbaycan dili">Azerbaycan dili</option>
+        <option value="Riyaziyyat">Riyaziyyat</option>
       </select>
       <table class="table">
         <thead>

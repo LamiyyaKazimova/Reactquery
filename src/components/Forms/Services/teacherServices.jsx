@@ -1,5 +1,5 @@
 import axios from "axios";
-const  apiUrlTeachers="https://678e3089a64c82aeb11f6611.mockapi.io/teacher"
+const  apiUrlTeachers="http://localhost:3000/teacher"
 
 
 export async function handlePostTeacherClick({inputValue}) {

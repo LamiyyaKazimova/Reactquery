@@ -9,8 +9,9 @@ function Students({ data }) {
   const [minpoint, setMinPoint] = useState(null);
   const [maxpoint, setMaxPoint] = useState(null);
   const [search, setSearch] = useState("");
-  const [currentpage, setCurrentPage] = useState(1);
-  let pageSize = 10;
+  
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 10;
 
   const queryClient = useQueryClient();
   const query = useQuery({ queryKey: ["todos"], queryFn: getStudents });
@@ -27,11 +28,13 @@ function Students({ data }) {
   }
 
   function minValue(e) {
-    setMinPoint(Number(e.target.value));
+    const value = e.target.value;
+    setMinPoint(value === "" ? null : Number(value)); 
   }
 
   function maxValue(e) {
-    setMaxPoint(Number(e.target.value));
+    const value = e.target.value;
+    setMaxPoint(value === "" ? null : Number(value)); 
   }
 
   function searchValue(e) {
@@ -42,11 +45,19 @@ function Students({ data }) {
     setCurrentPage(page);
   }
 
+  function resetFilters() {
+    setSpecialty("");
+    setMinPoint("");
+    setMaxPoint("");
+    setSearch("");
+    setCurrentPage(1);
+  }
+
   const studentData = useMemo(() => {
     if (!query.data) return [];
   
-    const filteredData =  query.data.filter((student) => {
-      const matchesSpecialty =!specialty || (student.specialty && student.specialty.toLowerCase() === specialty.toLowerCase());
+    const filteredData = query.data.filter((student) => {
+      const matchesSpecialty = !specialty || (student.specialty && student.specialty.trim().toLowerCase() === specialty.trim().toLowerCase());
   
       const matchesPoint =
         (minpoint === null || student.point >= minpoint) &&
@@ -59,26 +70,27 @@ function Students({ data }) {
       return matchesSpecialty && matchesPoint && searchFiltered;
     });
   
-    const startIndex = (currentpage - 1) * pageSize;
+    const startIndex = (currentPage - 1) * pageSize;
     const endIndex = startIndex + pageSize;
     return filteredData.slice(startIndex, endIndex);
-  }, [specialty, minpoint, maxpoint, search, currentpage, query.data]);
-  
+  }, [specialty, minpoint, maxpoint, search, currentPage, query.data]);
+
+  const totalPages = Math.ceil(query.data?.length / pageSize);
+
   return (
     <div className="teacher-table">
       <div className="all">
         <select
           onChange={specialtyValue}
-          value={specialty}
+          value={specialty.value}
           name="specially"
           id="student"
         >
-          <option value="">Secin</option>
+          <option value="">Hamisi</option>
           <option value="kompüter elmleri">kompüter elmləri</option>
           <option value="kompüter muhendisliyi">kompüter mühəndisliyi</option>
-          <option value="informasiya texnalogiyalari">
-            informasiya texnalogiyaları
-          </option>
+          <option value="informasiya texnalogiyalari">informasiya texnalogiyaları</option>
+          <option value="kibertehlukesizliyi">informasiya texnalogiyaları</option>
         </select>
 
         <div className="inputs">
@@ -97,8 +109,12 @@ function Students({ data }) {
         </div>
 
         <div className="search-input">
-          <input type="text" value={search} onChange={searchValue} />
+          <input type="text" value={search} onChange={searchValue} placeholder="Axtarış" />
         </div>
+
+        <button onClick={resetFilters} className="reset-button">
+          Filtrləri sıfırla
+        </button>
       </div>
 
       <table className="table">
@@ -110,11 +126,12 @@ function Students({ data }) {
             <th scope="col">Email</th>
             <th scope="col">Ixtisas</th>
             <th scope="col">Qiymət</th>
-            <th scope="col">Delete</th>
+            <th scope="col">Sil</th>
           </tr>
         </thead>
         <tbody>
-          {studentData?.map((data) => (
+        {studentData && studentData.length > 0 ? (
+          studentData?.map((data) => (
             <tr key={data.id}>
               <td>{data.id}</td>
               <td>{data.firstname}</td>
@@ -127,27 +144,55 @@ function Students({ data }) {
                   mutation.mutate(data.id);
                 }}
               >
-                Delete
+                Sil
               </button>
             </tr>
-          ))}
+          ))
+        ):(
+        <tr>
+          data yoxdu
+        </tr>
+        )}
         </tbody>
       </table>
 
-      <button
-        className="buttons"
-        onClick={() => pageValue(currentpage - 1)}
-        disabled={currentpage === 1}
-      >
-        Previous
-      </button>
-      <button
-        className="buttons"
-        onClick={() => pageValue(currentpage + 1)}
-        disabled={currentpage === Math.ceil(query.data?.length / pageSize)}
-      >
-        Next
-      </button>
+      {/* <div className="buttons">
+        <nav aria-label="Page navigation example">
+          <ul className="pagination">
+            <li className={`page-item ${currentPage === 1 ? "disabled" : ""}`}>
+              <a
+                className="page-link"
+                href="#"
+                onClick={() => pageValue(currentPage - 1)}
+                aria-label="Previous"
+              >
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+
+            
+            {Array.from({ length: totalPages }, (_, index) => (
+              <li className={`page-item ${currentPage === index + 1 ? "active" : ""}`} key={index}>
+                <a className="page-link" href="#" onClick={() => pageValue(index + 1)}>
+                  {index + 1}
+                </a>
+              </li>
+            ))}
+
+        
+            <li className={`page-item ${currentPage === totalPages ? "disabled" : ""}`}>
+              <a
+                className="page-link"
+                href="#"
+                onClick={() => pageValue(currentPage + 1)}
+                aria-label="Next"
+              >
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div> */}
     </div>
   );
 }
