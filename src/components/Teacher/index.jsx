@@ -43,7 +43,7 @@ function Teacher() {
         teacher.lastname.toLowerCase().includes(search.toLowerCase());
 
       const matchesProfession =
-        !profession|| (teacher.profession.toLowerCase() === profession.toLocaleLowerCase());
+        (!profession)|| (teacher.profession.toLowerCase() === profession.toLocaleLowerCase());
 
       return matchesSearch && matchesProfession;
     });
@@ -65,7 +65,7 @@ function Teacher() {
 
         <select onChange={professionValue} value={profession}>
           <option value="">Hamisi</option>
-          <option value="developer">proqramlasdirma</option>
+          <option value="proqramlasdirma">proqramlasdirma</option>
           <option value="suni intelekt">suni intelekt</option>
           <option value="optimallasdirma">Optimallasdirma</option>
           <option value="data muhendisliyi">Data muhendisliyi</option>

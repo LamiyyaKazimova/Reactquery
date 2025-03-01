@@ -9,6 +9,7 @@ import Students from "./components/Students";
 import Index from "./components/Documentation";
 
 
+
 const initialValue = {
   firstname: "",
   lastname: "",
@@ -32,10 +33,11 @@ function App() {
           <div>
             <nav>
               <ul className="link">
-              <NavLink  to="/" className="my-link">Documentation </NavLink> 
-              <NavLink  to="/form" className="my-link">Form</NavLink> 
-              <NavLink to="/teacher" className="my-link">Teacher</NavLink>
-              <NavLink to="/students" className="my-link">Students</NavLink>
+              <NavLink to="/" className="my-link" end>Documentation</NavLink>
+    <NavLink to="/form" className="my-link">Form</NavLink>
+    <NavLink to="/teacher" className="my-link">Teacher</NavLink>
+    <NavLink to="/students" className="my-link">Students</NavLink>
+
               </ul>
             </nav>
 

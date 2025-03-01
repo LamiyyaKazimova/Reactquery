@@ -7,8 +7,7 @@ function Index(){
       <header>
         <h1 className="documentation-title">Layihə Haqqında</h1>
         <p className="documentation-description">
-          Bu layihə tələbə ve muellim məlumatlarının idarə edilməsi və görüntülənməsi üçün hazırlanmış bir tətbiqdir. İstifadəçilər
-          tələbə ve muellim məlumatlarını daxil edə, redaktə edə və silə bilərlər.
+          Bu layihə tələbə ve muellim məlumatlarının idarə edilməsi və görüntülənməsi üçün hazırlanmış bir tətbiqdir.
         </p>
       </header>
 
@@ -31,8 +30,8 @@ function Index(){
           Bu tətbiqi istifadə etmək üçün aşağıdakı addımları izləyin:
         </p>
         <ol className="usage-steps">
-          <li>Tələbə məlumatlarını daxil edin ve ya muellim melumatlarini</li>
-          <li>hemin sehifeye kecid edib melumatlarinizaq baxin</li>
+          <li>Tələbə ve ya muellim məlumatlarını daxil edin</li>
+          <li>hemin sehifeye kecid edib melumatlariniza baxin</li>
           <li>Cədvəldə istədiyiniz məlumatları görün və silmək istədiyiniz məlumatları seçin.</li>
           <li>Daha sonra isteyinize gore filtirleme proseslerini apara bilersinizz</li>
         </ol>

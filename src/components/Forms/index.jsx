@@ -4,6 +4,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { handlePostClick } from "./Services/studentServices";
 import { handlePostTeacherClick } from "./Services/teacherServices";
 
+
 function Form({ inputValue, setInputValue }) {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [isFormHidden, setIsFormHidden] = useState(false);
@@ -31,19 +32,19 @@ function Form({ inputValue, setInputValue }) {
   function handleStudentButtonClick() {
     handleAddStudent();
     handleVisible();
-    setIsStudentDisabled(!isTeacherDisabled);
+    setIsStudentDisabled(!isStudentDisabled);
   }
 
   function handleTeacherButtonClick() {
     handleAddTeacher();
     handleHidden();
-    setIsTeacherDisabled(!isStudentDisabled);
+    setIsTeacherDisabled(!isTeacherDisabled);
   }
 
   const mutationStudents = useMutation({
-    mutationFn: handlePostClick,
+    mutationFn:handlePostClick,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["students"] });
+      queryClient.invalidateQueries({ queryKey: ["todos"] });
       setInputValue({
         firstname: "",
         lastname: "",
@@ -55,9 +56,9 @@ function Form({ inputValue, setInputValue }) {
   });
 
   const mutationTeacher = useMutation({
-    mutationFn: handlePostTeacherClick,
+    mutationFn:handlePostTeacherClick,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["teacher"] });
+      queryClient.invalidateQueries({ queryKey: ["todos"] });
       setInputValue({
         firstname: "",
         lastname: "",
