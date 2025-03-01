@@ -1,88 +1,117 @@
 {
   "students": [
     {
-      "firstname": "Lamiye",
-      "lastname": "Kazimova",
-      "email": "lamiyekazimov37@gmail.com",
       "id": "1",
-      "specialty": "informasiya texnalogiyalari",
-      "profession": "",
-      "point": "60"
-    },
-    {
       "firstname": "Lamiye",
       "lastname": "Kazimova",
       "email": "lamiyekazimov37@gmail.com",
-      "id": "9",
-      "specialty": "informasiya texnalogiyalari",
-      "profession": "",
-      "point": "60"
-    },
-    {
-      "firstname": "Lamiye",
-      "lastname": "Kazimova",
-      "email": "lamiyekazimov37@gmail.com",
-      "id": "10",
-      "specialty": "informasiya texnalogiyalari",
-      "profession": "",
+      "specialty": "kompüter elmleri",
       "point": "50"
     },
     {
+      "id": "2",
       "firstname": "Lamiye",
       "lastname": "Kazimova",
-      "email": "l@gmail.com",
-      "id": "11",
-      "profession": "Development instuctor"
+      "email": "lamiyekazimov37@gmail.com",
+      "specialty": "kompüter elmleri",
+      "point": "85"
     },
     {
-      "firstname": "Fatime",
-      "lastname": "Alizade",
-      "email": "f@gmail.com",
-      "id": "12",
-      "profession": "Pesen"
-    },
-    {
-      "firstname": "2025-02-25T08:47:31.415Z",
-      "lastname": "Georgia Mitchell IV",
-      "email": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/754.jpg",
-      "id": "14"
-    },
-    {
-      "firstname": "Lamiye",
-      "lastname": "Kazimova",
+      "id": "3",
+      "firstname": "Lale",
+      "lastname": "dunyamaliyeva",
       "email": "lale@gmail.com",
-      "id": "13",
-      "specialty": "Kompüter elmleri",
+      "specialty": "kibertehlukesizliyi",
+      "point": "60"
+    },
+    {
+      "id": "1",
+      "firstname": "Lamiye",
+      "lastname": "Kazimova",
+      "email": "lamiyekazimov37@gmail.com",
+      "specialty": "kompüter elmleri",
       "point": "50"
     },
     {
-      "firstname": "2025-02-25T08:47:31.415Z",
-      "lastname": "Georgia Mitchell IV",
-      "email": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/754.jpg",
-      "id": "14"
+      "id": "2",
+      "firstname": "Lamiye",
+      "lastname": "Kazimova",
+      "email": "lamiyekazimov37@gmail.com",
+      "specialty": "kompüter elmleri",
+      "point": "85"
     },
     {
-      "firstname": "2025-02-24T22:39:41.715Z",
-      "lastname": "Eunice Hermann",
-      "email": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/763.jpg",
-      "id": "15"
+      "id": "3",
+      "firstname": "Lale",
+      "lastname": "dunyamaliyeva",
+      "email": "lale@gmail.com",
+      "specialty": "kibertehlukesizliyi",
+      "point": "60"
+    },
+    {
+      "id": "6652",
+      "firstname": "Lamiye",
+      "lastname": "njfvd",
+      "email": "lamiyekazimov37@gmail.com",
+      "specialty": "kibertehlukesizliyi",
+      "point": "60"
+    },
+    {
+      "id": "1",
+      "firstname": "Lamiye",
+      "lastname": "Kazimova",
+      "email": "lamiyekazimov37@gmail.com",
+      "specialty": "kompüter elmleri",
+      "point": "50"
+    },
+    {
+      "id": "2",
+      "firstname": "Lamiye",
+      "lastname": "Kazimova",
+      "email": "lamiyekazimov37@gmail.com",
+      "specialty": "kompüter elmleri",
+      "point": "85"
+    },
+    {
+      "id": "3",
+      "firstname": "Lale",
+      "lastname": "dunyamaliyeva",
+      "email": "lale@gmail.com",
+      "specialty": "kibertehlukesizliyi",
+      "point": "60"
+    },
+    {
+      "id": "6652",
+      "firstname": "Lamiye",
+      "lastname": "njfvd",
+      "email": "lamiyekazimov37@gmail.com",
+      "specialty": "kibertehlukesizliyi",
+      "point": "60"
+    },
+    {
+      "id": "2d6c",
+      "firstname": "Lamiye",
+      "lastname": "dunyamaliyeva",
+      "email": "lamiyekazimov37@gmail.com",
+      "specialty": "kompüter muhendisliyi",
+      "point": "60"
+    },
+    {
+      "id": "715b",
+      "firstname": "Lamiye",
+      "lastname": "Kazimova",
+      "email": "lamiyekazimov37@gmail.com",
+      "specialty": "",
+      "point": "50"
     }
   ],
   "teacher": [
     {
-      "firstname": "Mahammad",
+      "id": "4aa4",
+      "firstname": "Muhammad",
       "lastname": "Mikayilov",
-      "email": "mahammad@gmail.com",
-      "id": "4",
-      "specialty": "",
-      "profession": "developer"
-    },
-    {
-      "firstname": "Mahammad",
-      "lastname": "Mikayilov",
-      "email": "mahammad@gmail.com",
-      "id": "5",
-      "profession": "Developer"
+      "email": "muhammad@gmail.com",
+      "profession": "proqramlasdirma"
     }
   ]
 }

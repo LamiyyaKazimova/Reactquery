@@ -6,6 +6,8 @@ import './App.scss';
 import Form from "./components/Forms";
 import Teacher from "./components/Teacher";
 import Students from "./components/Students";
+import Index from "./components/Documentation";
+
 
 const initialValue = {
   firstname: "",
@@ -30,14 +32,16 @@ function App() {
           <div>
             <nav>
               <ul className="link">
-              <NavLink  to="/">Form</NavLink> 
-              <NavLink to="/teacher">Teacher</NavLink>
-              <NavLink to="/students">Students</NavLink>
+              <NavLink  to="/" className="my-link">Documentation </NavLink> 
+              <NavLink  to="/form" className="my-link">Form</NavLink> 
+              <NavLink to="/teacher" className="my-link">Teacher</NavLink>
+              <NavLink to="/students" className="my-link">Students</NavLink>
               </ul>
             </nav>
 
             <Routes>
-              <Route path="/" element={<Form inputValue={inputValue} setInputValue={setInputValue}  />} />
+             <Route path="/" element={<Index/>} />
+              <Route path="/form" element={<Form inputValue={inputValue} setInputValue={setInputValue}  />} />
               <Route path="/teacher" element={<Teacher data={inputValue} />} />
               <Route path="/students" element={<Students data={inputValue} />} />
             </Routes>

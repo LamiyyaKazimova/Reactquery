@@ -16,7 +16,7 @@
     "web-vitals": "^4.2.4"
   },
   "scripts": {
-    "start-server":"npx json-server server/db.json",
+    "start-server": "npx json-server server/db.json",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -40,6 +40,4 @@
       "last 1 safari version"
     ]
   }
-
-  
 }
