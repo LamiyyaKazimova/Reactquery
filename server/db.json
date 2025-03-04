@@ -49,14 +49,6 @@
       "point": "60"
     },
     {
-      "id": "6652",
-      "firstname": "Lamiye",
-      "lastname": "njfvd",
-      "email": "lamiyekazimov37@gmail.com",
-      "specialty": "kibertehlukesizliyi",
-      "point": "60"
-    },
-    {
       "id": "1",
       "firstname": "Lamiye",
       "lastname": "Kazimova",
@@ -89,20 +81,12 @@
       "point": "60"
     },
     {
-      "id": "2d6c",
-      "firstname": "Lamiye",
-      "lastname": "dunyamaliyeva",
-      "email": "lamiyekazimov37@gmail.com",
-      "specialty": "kompüter muhendisliyi",
-      "point": "60"
-    },
-    {
-      "id": "715b",
-      "firstname": "Lamiye",
-      "lastname": "Kazimova",
-      "email": "lamiyekazimov37@gmail.com",
-      "specialty": "",
-      "point": "50"
+      "id": "6f79",
+      "firstname": "Aysun",
+      "lastname": "Binnetzade",
+      "email": "aysun@gmail.com",
+      "specialty": "kibertehlukesizliyi",
+      "point": "80"
     }
   ],
   "teacher": [

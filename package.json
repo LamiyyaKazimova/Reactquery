@@ -16,8 +16,8 @@
     "web-vitals": "^4.2.4"
   },
   "scripts": {
-    "start-server": "npx json-server server/db.json",
     "start": "react-scripts start",
+    "server": "npx json-server server/db.json",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

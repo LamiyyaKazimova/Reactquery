@@ -9,7 +9,7 @@ export async function handlePostClick({inputValue}) {
       apiUrlStudents,
       inputValue
     );
-    alert("Proses ugurla basa catdi!")
+   alert("proses ugurla basa catdi!")
   }
   }
 

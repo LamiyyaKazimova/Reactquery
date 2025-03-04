@@ -29,12 +29,22 @@ function Students() {
 
   function minValue(e) {
     const value = e.target.value;
-    setMinPoint(value === "" ? "" : Number(value));
+    // setMinPoint(value === "" ? "" : Number(value));
+    if(value>100){
+    setMinPoint(99)
+    }else{
+    setMinPoint(value)
+    }
   }
 
   function maxValue(e) {
     const value = e.target.value;
-    setMaxPoint(value === "" ? "" : Number(value));
+    // setMaxPoint(value === "" ? "" : Number(value));
+    if(value>100){
+    setMaxPoint(100)
+    }else{
+    setMaxPoint(value)
+    }
   }
 
   function searchValue(e) {
@@ -106,7 +116,7 @@ function Students() {
           <option value="informasiya texnalogiyalari">
             informasiya texnalogiyaları
           </option>
-          <option value="kibertehlukesizliyi">kiber təhlükəsizliyi</option>
+          <option value="kibertehlukesizliyi">kibertəhlükəsizliyi</option>
         </select>
 
         <div className="inputs">
@@ -115,12 +125,14 @@ function Students() {
             value={minpoint}
             onChange={minValue}
             placeholder="Min"
+            onKeyDown={(e) =>{if(!/^[0-9]$/.test(e.key) && e.key !== "Backspace"){e.preventDefault()}}}
           />
           <input
             type="number"
             value={maxpoint}
             onChange={maxValue}
             placeholder="Max"
+            onKeyDown={(e) =>{if(!/^[0-9]$/.test(e.key) && e.key !== "Backspace"){e.preventDefault()}}}
           />
         </div>
 
@@ -130,6 +142,7 @@ function Students() {
             value={search}
             onChange={searchValue}
             placeholder="Axtarış"
+
           />
         </div>
 
