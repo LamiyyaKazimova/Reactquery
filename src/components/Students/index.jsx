@@ -113,9 +113,6 @@ function Students() {
           <option value="">Hamisi</option>
           <option value="kompüter elmleri">kompüter elmləri</option>
           <option value="kompüter muhendisliyi">kompüter mühəndisliyi</option>
-          <option value="informasiya texnalogiyalari">
-            informasiya texnalogiyaları
-          </option>
           <option value="kibertehlukesizliyi">kibertəhlükəsizliyi</option>
         </select>
 

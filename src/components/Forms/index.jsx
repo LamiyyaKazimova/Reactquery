@@ -110,9 +110,6 @@ function Form({ inputValue, setInputValue }) {
             <option value="">Ixtisas secin</option>
             <option value="kompüter elmleri">kompüter elmləri</option>
             <option value="kompüter muhendisliyi">kompüter mühəndisliyi</option>
-            <option value="informasiya texnalogiyalri">
-              informasiya texnalogiyaları
-            </option>
             <option value="kibertehlukesizliyi">
               kibertehlukesizliyi
             </option>
